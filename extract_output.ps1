@@ -1,0 +1,1 @@
+docker cp member1:/ppspn_env/ressources/output/. ./extracted_output/
