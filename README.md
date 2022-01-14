@@ -1,5 +1,6 @@
 # PPSPN
 Privacy preserving Sum-Product-Networks
+At src/spn is a dublica of https://github.com/SPFlow/SPFlow and at src/webstocketsis a dublica of https://websockets.readthedocs.io/en/stable/ libary. Therefor the files may contain author names of those libaries.
 
 ## Installing
 For running the `main-member.py` or `main-manager.py` you have to install the following python packages:
