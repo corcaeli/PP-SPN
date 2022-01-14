@@ -1,0 +1,19 @@
+FROM python:3.9
+
+WORKDIR /ppspn_env
+
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+RUN pip3 install galois==0.0.20 lark matplotlib nest-asyncio networkx scipy sympy torch tqdm pandas==1.3.1
+
+COPY ./ressources/input ./ressources/input
+
+COPY ./src/ .
+
+COPY ./ressources/config ./ressources/config
+
+COPY ./ressources/output ./ressources/output
+
+ENV LOGGER_LEVEL=18
+
+CMD ["python", "main_manager.py"]

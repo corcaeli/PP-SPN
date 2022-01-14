@@ -1,0 +1,3 @@
+docker network create --driver=overlay --attachable spn_overlay		# created an overlay the container are connected with each other
+docker exec -it manager /bin/sh						# opens a bash at the container, manager here
+docker cp manager:/ppspn_env/main.py .					# copies from the container, manager here, a file to the host
