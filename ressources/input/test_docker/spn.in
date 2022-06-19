@@ -1,0 +1,1 @@
+(0.4*((Categorical(V0|p=[0.2, 0.8]) * (0.3*((Categorical(V1|p=[0.3, 0.7]) * Categorical(V2|p=[0.4, 0.6]))) + 0.7*((Categorical(V1|p=[0.5, 0.5]) * Categorical(V2|p=[0.6, 0.4])))))) + 0.6*(((Categorical(V0|p=[0.2, 0.8]) * Categorical(V1|p=[0.3, 0.7])) * Categorical(V2|p=[0.4, 0.6]))))

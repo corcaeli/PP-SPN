@@ -207,7 +207,9 @@ class Member:
             time.sleep(0.5)
             self.on_ready()
 
+
     def evaluate_message(self, message):
+        #logger.info_spn(f"message: {message} und d: {d}")
         source = message.get(Keys.MESSAGE_SOURCE)
 
         if source is not None:
@@ -219,11 +221,31 @@ class Member:
             data_id = data.get(Keys.MESSAGE_DATA_ID)
             data_value = data.get(Keys.MESSAGE_DATA_VALUE)
 
+        #if not (source_ip4 == "10.0.1.10"):
+        #    time.sleep(self.network_socket.latency / 1000)
+
+        ##if not ((source_ip4 == "10.0.1.10") or (self.id is Values.MANAGER_ID)):
+        ##        if not (source_ip4 == self.id_chip.ip4):
+        ##            time.sleep(self.network_socket.latency / 1000)
+
+        
+
+        if source_ip4 == "10.0.1.11":
+            if self.network_socket.ip4 != "10.0.1.11":
+                time.sleep(self.network_socket.latency / 1000)
+                
         logger.debug_spn_communication(
             f"{datetime.now()}: receiving at {self.id_chip.ip4}:{self.id_chip.port} from {source_ip4}:{source_port} message {data_id}:{data_value}"
         )
+
+
+        #debug_spn_communication
+        ##logger.info_spn(
+        ##    f"{datetime.now()}: receiving at {self.id_chip.ip4}:{self.id_chip.port} from {source_ip4}:{source_port} message {data_id}:{data_value}"
+        ##)
         # time.sleep(self.network_socket.latency / 1000)
         self.execute_exercise(data_id, data_value)
+
 
     def execute_exercise(self, message_id, message_value):
         hook = self.exercise_hooks.get(message_id)

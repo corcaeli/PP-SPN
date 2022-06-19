@@ -28,9 +28,9 @@ def add_exercise_evaluation_of_sum_node(manager, sum_node: Sum):
             data_id_child_times_weight,
             divide_with_d=False,
         )
-        add_exercise_reveal_number(manager, data_id_child_result)
-        add_exercise_reveal_number(manager, data_id_weight)
-        add_exercise_reveal_number(manager, data_id_child_times_weight)
+        #add_exercise_reveal_number(manager, data_id_child_result)
+        #add_exercise_reveal_number(manager, data_id_weight)
+        #add_exercise_reveal_number(manager, data_id_child_times_weight)
         add_exercise_division_with_d_multiplyer(
             manager, data_id_child_times_weight, data_id_child_times_weight
         )

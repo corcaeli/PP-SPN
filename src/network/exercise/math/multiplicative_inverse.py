@@ -8,6 +8,7 @@ from network.exercise.reveal.receive_revealed_value import (
     add_exercise_receive_revealed_value,
 )
 
+from decimal import Decimal, getcontext
 
 def add_exercise_multiplicative_inverse(manager, data_id, data_id_result=None):
     manager.exercises.append(Exercise(IDs.INVERSE_SHARING_R_STEP, data_id))
@@ -50,7 +51,10 @@ def inverse_result_step(member, message_value):
     u = member.data.get(f"{data_id}_inverse_u")
     r = member.data.get(f"{data_id}_inverse_r")
     u_inverse = pow(u, member.prim_number - 2, member.prim_number) % member.prim_number
-    member.data[data_id_result] = (r * u_inverse) % member.prim_number
+    #member.data[data_id_result] = (r * u_inverse) % member.prim_number
+    getcontext().prec = 100
+    member.data[data_id_result] = int(
+        ((Decimal(r)) * Decimal(u_inverse)) % Decimal(member.prim_number)) % member.prim_number
 
     member.network_socket.send(
         member.manager_id_chip, IDs.INVERSE_RESULT_STEP, member.id

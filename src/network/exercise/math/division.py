@@ -49,16 +49,17 @@ def add_exercise_division(
     add_exercise_multiplication(
         manager, data_id_dn, data_id_denominator_appinv, data_id_tmp
     )
-
+    # (num*d) * (2^n/denom +-1) = (d * num * 2^n) / denom +- num*d
     ##new
-    add_exercise_subtraction(
-        manager, data_id_tmp, DataIDs.DIVISION_MULTIPLYER, data_id_tmp
-    )
-    add_exercise_trunc(manager, data_id_tmp, manager.truncate_n, data_id_result)
+    ############################################################################ 
+    #add_exercise_subtraction(
+    #    manager, data_id_tmp, DataIDs.DIVISION_MULTIPLYER, data_id_tmp
+    #)
+    add_exercise_trunc(manager, data_id_tmp, pow(2,manager.truncate_n), data_id_result)
 
-    add_exercise_reveal_number(manager, data_id_dn)
-    add_exercise_reveal_number(manager, data_id_denominator_appinv)
-    add_exercise_reveal_number(manager, data_id_tmp)
+    #add_exercise_reveal_number(manager, data_id_dn)
+    #add_exercise_reveal_number(manager, data_id_denominator_appinv)
+    #add_exercise_reveal_number(manager, data_id_tmp)
 
     add_exercise_delete_data_at_ids(
         manager, data_id_dn, data_id_denominator_appinv, data_id_tmp
@@ -75,7 +76,7 @@ def add_exercise_division_with_d_multiplyer(manager, data_id_numerator, data_id_
     add_exercise_multiplication(
         manager, data_id_numerator, data_id_denominator_appinv, data_id_tmp
     )
-    add_exercise_trunc(manager, data_id_tmp, manager.truncate_n, data_id_result)
+    add_exercise_trunc(manager, data_id_tmp, pow(2,manager.truncate_n), data_id_result)
     # add_exercise_reveal_number(manager, data_id_tmp)
 
     add_exercise_delete_data_at_ids(manager, data_id_tmp)

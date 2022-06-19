@@ -1,7 +1,7 @@
 from init_logger import init_logger
 from network import Member, Manager
 
-config_file_path = "./ressources/config/config_reduced.ini"
+config_file_path = "./ressources/config/config.ini"
 
 init_logger()
 # logging.getLogger().setLevel(18) # info

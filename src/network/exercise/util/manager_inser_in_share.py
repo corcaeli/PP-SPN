@@ -4,7 +4,7 @@ from globals import IDs
 from functools import partial
 import logging
 
-logger = logging.getLogger(__name__)
+#logger = logging.getLogger(__name__)
 
 
 def add_exercise_manager_inser_in_share(manager, data_id):
@@ -32,7 +32,7 @@ def on_start_manager_inser_in_share(manager, exercise):
     poly = polynom_for_secret(
         manager.max_degree_for_polynomials, manager.prim_number, value
     )
-    logger.info_spn(
+    manager.logger.info_spn(
         f'{datetime.now()}: Exercise "{exercise.id}" is send to all members'
     )
     for id_chip in manager.id_chips_for_id.values():

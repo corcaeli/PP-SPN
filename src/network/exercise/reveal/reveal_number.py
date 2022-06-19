@@ -3,6 +3,10 @@ from globals import IDs
 
 from functools import partial
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def add_exercise_reveal_number(manager, data_id):
     manager.exercises.append(
@@ -20,10 +24,10 @@ def on_completion_reveal_number(manager, exercise):
     manager.join_polynomial_shares(exercise.value)
     value_to_send = manager.data.get(exercise.value)
     manager.send_to_all(exercise.value, value_to_send)
-    manager.logger.info_spn(
-        f"{exercise.value} is {value_to_send}. (from polynomial shares)"
-    )
-    print(f"{exercise.value} is {value_to_send}. (from polynomial shares)")
+    #manager.logger.special_spn(
+    #    f"{exercise.value} is {value_to_send}. (from polynomial shares)"
+    #)
+    #logger.special_spn(f"{exercise.value} is {value_to_send}. (from polynomial shares)")
 
 
 def reveal_number(member, message_value):

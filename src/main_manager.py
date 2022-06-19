@@ -9,6 +9,7 @@ logger_level = int(os.getenv("LOGGER_LEVEL"))
 config_file_location = os.getenv("CONFIG_FILE_LOCATION")
 
 init_logger(logger_level)
+#init_logger(18)
 # logging.getLogger().setLevel(18) # info
 # logging.getLogger().setLevel(15) # debug
 

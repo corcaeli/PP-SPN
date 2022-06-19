@@ -55,7 +55,12 @@ def on_completion_dummy(manager, exercise):
 
 def dummy(member, message_value):
     data_id = message_value
-    print(f"{data_id}:\tid: {member.id} data: {member.data}")
+    from websockets.legacy.framing import Frame
+    #print(f"{data_id}:\tid: {member.id} data: {member.data}")
+    logger.info_spn(f"{data_id}:\tid: {member.id} data: {member.data}")
+    logger.info_spn(f"frame counter: {Frame.MEASUREMENT_total_message_amount}")
+    logger.info_spn(f"frame length counter: {Frame.MEASUREMENT_total_message_lengths}")
+    
     member.network_socket.send(member.manager_id_chip, IDs.DUMMY, member.id)
     # from websockets.legacy.framing import Frame
     # print(f"frame counter: {Frame.MEASUREMENT_total_message_amount}")

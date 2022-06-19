@@ -94,75 +94,7 @@ class Manager(Member):
             self, DataIDs.DIVISION_MULTIPLYER, DataIDs.DIVISION_MULTIPLYER_APPINVERSE
         )
 
-        # add_exercise_multiplication(self, "d_multiplyer", "d_multiplyer_appinv", "test_app_inv")
-        # add_exercise_reveal_number(self, "test_app_inv")
-
-        # data_id_one = "one"
-        test_value_id_1 = "test_value_1"
-        test_value_id_2 = "test_value_2"
-
-        # test_mult_result_id = "test_mult_result"
-        # test_div_result_id = "test_div_result"
-        test_appinv_result_id = "test_appinv_result"
-        # test_trunc_result_id = "test_trunc_result"
-
-        # self.data[data_id_one] = 1
-        # add_exercise_manager_inser_in_share(self, data_id_one)
-
-        # self.data[test_value_id_1] = 5422345
-        # add_exercise_manager_inser_in_share(self, test_value_id_1)
-
-        # self.data[test_value_id_2] = 24356
-        # add_exercise_manager_inser_in_share(self, test_value_id_2)
-
-        # add_exercise_division(
-        #    self, test_value_id_2, test_value_id_1, test_div_result_id
-        # )
-        ##add_exercise_trunc(self, test_value_id_1, 9, test_trunc_result_id)
-        ##add_exercise_reveal_number(self, test_trunc_result_id)
-        ##5422345  84724  84724,140625
-        # for i in range(100):
-        #    add_exercise_division(
-        #        self, test_value_id_1, test_value_id_2, test_appinv_result_id
-        #    )
-        # add_exercise_reveal_number(self, test_appinv_result_id)
-
-        # add_exercise_multiplication(
-        #    self, test_value_id_1, test_appinv_result_id, "tmp_sol"
-        # )
-        # add_exercise_trunc(self, test_appinv_result_id, 13, "trunc result")
-        # add_exercise_reveal_number(self, "trunc result")
-
-        # add_exercise_reveal_number(self, "tmp_sol")
-        # add_exercise_multiplication(
-        #    self, test_value_id_1, test_value_id_2, test_mult_result_id
-        # )
-
-        # add_exercise_reveal_number(self, test_div_result_id)
-
-        # add_exercise_multiplication(self, "test_value_2", "test_value_3", "test_value_2_times_3")
-        # add_exercise_dummy(self, data_id="before")
-        ##add_exercise_division(self, "test_value_2", "test_value_3", "test_div_result")
-        # add_exercise_dummy(self, data_id="before")
-
-        # number_prefix = "test_number"
-
-        # for idx in range(2):
-        #    data_id = f"{number_prefix}_{idx}"
-        #    self.data[data_id] = randint(1,45239865857)
-        #    add_exercise_manager_inser_in_share(self, data_id)
-
-        # data_id_result = "test_result"
-        # self.data[data_id_result] = 0
-        # add_exercise_manager_inser_in_share(self, data_id_result)
-
-        # add_exercise_dummy(self, "After inserts")
-
-        # for idx in range(100):
-        #    data_id = f"{number_prefix}_0"
-        #    add_exercise_addition(self, data_id_result, data_id)
-
-        # add_exercise_dummy(self, "After additions")
+        
 
         ## Load weight of the SPN from file if stated in config
         if self.config[Keys.CONFIG_GENERAL_SECTION].get(
@@ -234,7 +166,7 @@ class Manager(Member):
         # self.table_time += end_time - start_time
 
     def evaluate_message(self, message):
-
+        #logger.info_spn(f"message: {message} und d: {d}")
         source = message.get(Keys.MESSAGE_SOURCE)
 
         if source is not None:

@@ -35,10 +35,18 @@ def init_logger(logging_level=18):
             # Yes, logger takes its '*args' as 'args'.
             self._log(18, message, args, **kws)
 
+    logging.addLevelName(20, "SPECIAL_SPN")
+
+    def special_spn(self, message, *args, **kws):
+        if self.isEnabledFor(20):
+            # Yes, logger takes its '*args' as 'args'.
+            self._log(20, message, args, **kws)
+
     logging.basicConfig(level=18)
 
     logging.Logger.debug_spn = debug_spn
     logging.Logger.info_spn = info_spn
     logging.Logger.debug_spn_communication = debug_spn_communication
+    logging.Logger.special_spn = special_spn
 
     logging.getLogger().setLevel(logging_level)

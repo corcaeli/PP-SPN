@@ -22,6 +22,7 @@ from network.exercise.util.manager_inser_in_share import (
 
 import random
 
+from decimal import Decimal, getcontext
 
 def add_exercise_trunc(manager, data_id, n, data_id_result=None):
     if data_id_result is None:
@@ -39,7 +40,8 @@ def add_exercise_trunc(manager, data_id, n, data_id_result=None):
     )
 
     # r = random.randint(1, 1024)
-    s = pow(2, n)
+    ###s = pow(2, n)
+    s = n
 
     data_id_r = f"{data_id}_trunc_r"
     data_id_z = f"{data_id}_trunc_z"
@@ -126,7 +128,8 @@ def on_start_trunc_init(manager, exercise):
     data_id_result = components[2]
 
     r = random.randint(1, 1024)
-    s = pow(2, n)
+    ####s = pow(2, n)
+    s = n
     #s_inv = pow(s, manager.prim_number - 2, manager.prim_number)
     z = r % s
 

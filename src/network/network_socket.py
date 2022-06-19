@@ -22,6 +22,8 @@ import nest_asyncio
 
 nest_asyncio.apply()
 
+#from threading import Thread
+#from concurrent.futures import ThreadPoolExecutor
 
 class NetworkSocket:
     def __init__(self, member) -> None:
@@ -79,6 +81,10 @@ class NetworkSocket:
             message = json.loads(message)
             # if not (self.id is Values.MANAGER_ID):
             # time.sleep(self.latency / 1000)
+            
+            #new_thread = Thread(group = None, target = self.member.evaluate_message, args = [message])
+            #new_thread.start()
+
             self.member.evaluate_message(message)
 
         # message_json_str = await websocket.recv()
@@ -90,7 +96,7 @@ class NetworkSocket:
 
     def send(self, target_id_chip, data_id, value):
         while not self.isReady:
-            time.sleep(1)
+            time.sleep(0.01)
         # asyncio.new_event_loop().run_until_complete(
         #    self.__send(target_id_chip, data_id, value)
         # )
@@ -125,8 +131,11 @@ class NetworkSocket:
                 f"{datetime.now()}: sending from {self.ip4}:{self.port} to {target_ip4}:{target_port} message {data_id}:{data_value}"
             )
 
-            if target_id_chip.id is Values.MANAGER_ID:
-                time.sleep(self.latency / 1000)
+            #if target_id_chip.id is Values.MANAGER_ID:
+            #    time.sleep(self.latency / 1000)
+            ##if not ((target_id_chip.id is Values.MANAGER_ID) or (self.id is Values.MANAGER_ID)):
+            ##    if (target_id_chip is not self.id_chip):
+            ##        time.sleep(self.latency / 1000)
 
             await websocket.send(message_json_str)
             # await websocket.recv()  ####
